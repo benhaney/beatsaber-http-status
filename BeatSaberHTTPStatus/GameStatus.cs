@@ -1,4 +1,5 @@
 using System;
+using static SongCore.Data.ExtraSongData;
 
 namespace BeatSaberHTTPStatus {
 	[Serializable]
@@ -31,6 +32,8 @@ namespace BeatSaberHTTPStatus {
 		public int maxScore = 0;
 		public string maxRank = "E";
 		public string environmentName = null;
+		public MapColor colorLeft = null;
+		public MapColor colorRight = null;
 
 		// Performance
 		public int score = 0;
@@ -130,6 +133,8 @@ namespace BeatSaberHTTPStatus {
 			this.maxScore = 0;
 			this.maxRank = "E";
 			this.environmentName = null;
+			this.colorLeft = null;
+			this.colorRight = null;
 		}
 
 		public void ResetPerformance() {

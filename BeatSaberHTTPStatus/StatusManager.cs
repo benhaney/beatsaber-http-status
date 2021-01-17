@@ -97,6 +97,14 @@ namespace BeatSaberHTTPStatus {
 			beatmapJSON["maxScore"] = gameStatus.maxScore;
 			beatmapJSON["maxRank"] = gameStatus.maxRank;
 			beatmapJSON["environmentName"] = gameStatus.environmentName;
+			if (beatmapJSON["colorLeft"] == null) beatmapJSON["colorLeft"] = new JSONObject();
+			beatmapJSON["colorLeft"]["r"] = gameStatus.colorLeft != null ? gameStatus.colorLeft.r : 1.0;
+			beatmapJSON["colorLeft"]["g"] = gameStatus.colorLeft != null ? gameStatus.colorLeft.g : 0.0;
+			beatmapJSON["colorLeft"]["b"] = gameStatus.colorLeft != null ? gameStatus.colorLeft.b : 0.0;
+			if (beatmapJSON["colorRight"] == null) beatmapJSON["colorRight"] = new JSONObject();
+			beatmapJSON["colorRight"]["r"] = gameStatus.colorRight != null ? gameStatus.colorRight.r : 0.0;
+			beatmapJSON["colorRight"]["g"] = gameStatus.colorRight != null ? gameStatus.colorRight.g : 0.0;
+			beatmapJSON["colorRight"]["b"] = gameStatus.colorRight != null ? gameStatus.colorRight.b : 1.0;
 		}
 
 		private void UpdatePerformanceJSON() {

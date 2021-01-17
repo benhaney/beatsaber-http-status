@@ -30,6 +30,7 @@ namespace BeatSaberHTTPStatus {
 		private GameplayCoreSceneSetupData gameplayCoreSceneSetupData;
 		private PauseController pauseController;
 		private ScoreController scoreController;
+		private ColorManager colorManager;
 		private MultiplayerSessionManager multiplayerSessionManager;
 		private MultiplayerController multiplayerController;
 		private MonoBehaviour gameplayManager;
@@ -288,6 +289,10 @@ namespace BeatSaberHTTPStatus {
 
 			IDifficultyBeatmap diff = gameplayCoreSceneSetupData.difficultyBeatmap;
 			IBeatmapLevel level = diff.level;
+			SongCore.Data.ExtraSongData.DifficultyData songData = SongCore.Collections.RetrieveDifficultyData(diff);
+
+			gameStatus.colorLeft = songData._colorLeft;
+			gameStatus.colorRight = songData._colorRight;
 
 			gameStatus.partyMode = Gamemode.IsPartyActive;
 			gameStatus.mode = BS_Utils.Plugin.LevelData.GameplayCoreSceneSetupData.difficultyBeatmap.parentDifficultyBeatmapSet.beatmapCharacteristic.serializedName;
